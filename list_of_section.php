@@ -20,32 +20,29 @@ while($data=mysqli_fetch_assoc($query1)){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subject List</title>
+    <title>Section List</title>
 </head>
 
 <body>
     <?php
-    $sql = "SELECT * FROM subject";
+    $sql = "SELECT * FROM section";
     $result = $conn->query($sql);
 
     echo "<table border='1'>
     <tr>
-    <th>Subject Category</th>
-    <th>Subject Name</th>
-    <th>Subject Code</th>
+    <th>section_category</th>
+    <th>section_name</th>
     <th>Action</th>
     </tr>";
     while ($data = mysqli_fetch_assoc($result)) {
-        $subject_id = $data['subject_id'];
-        $subject_category = $data['subject_category'];
-        $subject_name = $data['subject_name'];
-        $subject_code = $data['subject_code'];
+        $section_id  = $data['section_id'];
+        $section_category = $data['section_category'];
+        $section_name = $data['section_name'];
         echo "<tr>
-        <td>$data_list[$subject_category]</td>
-        <td>$subject_name</td>
-        <td>$subject_code</td>
-        <td><a href='edit_subject.php?id=$subject_id'>Edit</a></td>
-        </tr>";
+        <td>$data_list[$section_category]</td>
+        <td>$section_name</td>
+        <td><a href='edit_section.php?id=$section_id'>Edit</a>
+        </td></tr>";
     }
     echo "</table>";
 

@@ -20,10 +20,27 @@ require('connection.php');
         $query = $conn->query($sql);
         $data = mysqli_fetch_assoc($query);
 
-        $subject_code = $data['subject_code'];
-        $subject_name = $data['subject_name'];
-        $subject_category = $data['subject_category'];
-        $subject_id = $data['subject_id'];
+        $subject_code       = $data['subject_code'];
+        $subject_name       = $data['subject_name'];
+        $subject_category   = $data['subject_category'];
+        $subject_id         = $data['subject_id'];
+    }
+    if (isset($_GET['subject_category'])) {
+        $new_subject_category   = $_GET['subject_category'];
+        $new_subject_name       = $_GET['subject_name'];
+        $new_subject_code       = $_GET['subject_code'];
+        $new_subject_id         = $_GET['subject_id'];
+
+        $sql2 = "UPDATE subject SET subject_category='$new_subject_category',
+                                     subject_name='$new_subject_name',
+                                     subject_code='$new_subject_code'
+                                     WHERE subject_id='$new_subject_id'";
+
+        if ($conn->query($sql2) == TRUE) {
+            echo "Update Successful.";
+        } else {
+            echo "Error occur.";
+        }
     }
     ?>
     <?php
@@ -38,9 +55,9 @@ require('connection.php');
                 $class_id = $data['class_id'];
                 $class_name = $data['class_name'];
             ?>
-                <option value='<?php  echo $class_id ?>' <?php if($subject_category == $class_id){echo "selected";} ?>>
-                    
-                    <?php echo $class_name ?></option>
+                <option value='<?php echo $class_id ?>' <?php if ($subject_category == $class_id) {
+                                                            echo "selected";
+                                                        } ?>><?php echo $class_name ?></option>
             <?php } ?>
         </select><br><br>
 
