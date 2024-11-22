@@ -14,7 +14,7 @@ require('connection.php');
 <body>
     <?php
     if (isset($_GET['class_name'])) {
-        $class_name = $_GET["class_name"]; //Gettin data from form
+        $class_name = $_GET["class_name"];
 
         $sql = "INSERT INTO class(class_name) 
                 VALUES('$class_name')";
