@@ -139,9 +139,9 @@ session_start();
 
             header('location:student_homepage.php');
         } elseif (mysqli_num_rows($query1) > 0) {
-            header('location:index1.php');
+            header('location:teacher_homepage.php');
         } elseif (mysqli_num_rows($query2) > 0) {
-            header('location:index2.php');
+            header('location:admin_homepage.php');
         }
     }
 
@@ -159,7 +159,7 @@ session_start();
             <button type="submit" >Login</button>
         </form>
         <div class="register-container">
-            <p>Don't have an account?<a href="register.php"> SignUp</a></p>
+            <p>Don't have an account?<a href="add_student.php"> SignUp</a></p>
         </div>
     </div>
 

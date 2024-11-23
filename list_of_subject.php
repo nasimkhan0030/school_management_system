@@ -21,14 +21,25 @@ while($data=mysqli_fetch_assoc($query1)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subject List</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+<nav>
+        navbar
+    </nav>
+    <!-- sidebar start -->
+    <aside>
+        <?php include('sidebar.php')?>
+    </aside>
+    <!-- sidebar end -->
+    <main class='list-container'>
+    <h2>List of Subjects</h2>
     <?php
     $sql = "SELECT * FROM subject";
     $result = $conn->query($sql);
 
-    echo "<table border='1'>
+    echo "<table border='1' id='class'>
     <tr>
     <th>Subject Category</th>
     <th>Subject Name</th>
@@ -44,14 +55,15 @@ while($data=mysqli_fetch_assoc($query1)){
         <td>$data_list[$subject_category]</td>
         <td>$subject_name</td>
         <td>$subject_code</td>
-        <td><a href='edit_subject.php?id=$subject_id'>Edit</a></td>
+        <td><a href='edit_subject.php?id=$subject_id'><button>Edit</button></a></td>
         </tr>";
     }
     echo "</table>";
-
     ?>
 
+    </main>
 
+    <footer>Footer</footer>
 </body>
 
 </html>
