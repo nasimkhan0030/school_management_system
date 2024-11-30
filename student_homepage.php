@@ -19,19 +19,21 @@ if (!empty($user_id)) {
     <body>
 
         <nav>
-            navbar
+            <?php include('navbar.php') ?>
         </nav>
 
         <aside>
-            <?php include('sidebar.php')?>
+            <?php include('sidebar2.php') ?>
         </aside>
 
         <main>
             <h1>Hello</h1>
         </main>
 
-        <footer>Footer</footer>
-        
+        <footer>
+            <?php require('footer.php') ?>
+        </footer>
+
     </body>
 
     </html>

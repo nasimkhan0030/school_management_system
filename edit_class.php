@@ -59,7 +59,6 @@ require('connection.php');
 
     <footer>Footer</footer>
 
-
 </body>
 
 </html>

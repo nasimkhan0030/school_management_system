@@ -35,7 +35,7 @@ require('connection.php');
     ?>
 
     <nav>
-        navbar
+        <?php include('navbar.php') ?>
     </nav>
 
     <aside>

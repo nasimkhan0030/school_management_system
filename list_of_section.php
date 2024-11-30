@@ -21,11 +21,12 @@ while ($data = mysqli_fetch_assoc($query1)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Section List</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
     <nav>
-        navbar
+        <?php include('navbar.php') ?>
     </nav>
 
     <aside>
@@ -33,7 +34,6 @@ while ($data = mysqli_fetch_assoc($query1)) {
     </aside>
 
     <main class="list-container">
-        <h2>List of Section</h2>
         <?php
         $sql = "SELECT * FROM section";
         $result = $conn->query($sql);

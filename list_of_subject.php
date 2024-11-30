@@ -1,16 +1,15 @@
 <?php
 require('connection.php');
-$sql1="SELECT * FROM class";
-$query1=$conn->query($sql1);
+$sql1 = "SELECT * FROM class";
+$query1 = $conn->query($sql1);
 
-$data_list=array();
+$data_list = array();
 
-while($data=mysqli_fetch_assoc($query1)){
-    $class_id=$data['class_id'];
-    $class_name=$data['class_name'];
+while ($data = mysqli_fetch_assoc($query1)) {
+    $class_id = $data['class_id'];
+    $class_name = $data['class_name'];
 
-    $data_list[$class_id]=$class_name;
-
+    $data_list[$class_id] = $class_name;
 }
 ?>
 
@@ -25,41 +24,40 @@ while($data=mysqli_fetch_assoc($query1)){
 </head>
 
 <body>
-<nav>
-        navbar
+    <nav>
+        <?php include('navbar.php') ?>
     </nav>
     <!-- sidebar start -->
     <aside>
-        <?php include('sidebar.php')?>
+        <?php include('sidebar.php') ?>
     </aside>
     <!-- sidebar end -->
     <main class='list-container'>
-    <h2>List of Subjects</h2>
-    <?php
-    $sql = "SELECT * FROM subject";
-    $result = $conn->query($sql);
+        <?php
+        $sql = "SELECT * FROM subject";
+        $result = $conn->query($sql);
 
-    echo "<table border='1' id='class'>
-    <tr>
-    <th>Subject Category</th>
-    <th>Subject Name</th>
-    <th>Subject Code</th>
-    <th>Action</th>
-    </tr>";
-    while ($data = mysqli_fetch_assoc($result)) {
-        $subject_id = $data['subject_id'];
-        $subject_category = $data['subject_category'];
-        $subject_name = $data['subject_name'];
-        $subject_code = $data['subject_code'];
-        echo "<tr>
-        <td>$data_list[$subject_category]</td>
-        <td>$subject_name</td>
-        <td>$subject_code</td>
-        <td><a href='edit_subject.php?id=$subject_id'><button>Edit</button></a></td>
-        </tr>";
-    }
-    echo "</table>";
-    ?>
+        echo "<table border='1' id='class'>
+                <tr>
+                <th>Subject Category</th>
+                <th>Subject Name</th>
+                <th>Subject Code</th>
+                <th>Action</th>
+            </tr>";
+        while ($data = mysqli_fetch_assoc($result)) {
+            $subject_id = $data['subject_id'];
+            $subject_category = $data['subject_category'];
+            $subject_name = $data['subject_name'];
+            $subject_code = $data['subject_code'];
+            echo "<tr>
+                    <td>$data_list[$subject_category]</td>
+                    <td>$subject_name</td>
+                    <td>$subject_code</td>
+                    <td><a href='edit_subject.php?id=$subject_id'><button>Edit</button></a></td>
+                </tr>";
+        }
+        echo "</table>";
+        ?>
 
     </main>
 

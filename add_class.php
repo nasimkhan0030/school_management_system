@@ -12,7 +12,7 @@ require('connection.php');
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="style2.css">
     <style>
- 
+
     </style>
 </head>
 
@@ -32,7 +32,7 @@ require('connection.php');
     }
     ?>
     <nav>
-        navbar
+        <?php include('navbar.php') ?>
     </nav>
 
     <aside>
