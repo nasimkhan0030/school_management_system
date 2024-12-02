@@ -8,5 +8,5 @@
 </ul>
 <h3>Profile</h3>
 <ul>
-    <li><a href="#">Profile</a></li>
+    <li><a href="profile.php">Profile</a></li>
 </ul>
