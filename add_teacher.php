@@ -1,6 +1,12 @@
-<?php
+<?php 
 require('connection.php');
 session_start();
+$user_first_name = $_SESSION['user_first_name'];
+$user_last_name = $_SESSION['user_last_name'];
+$user_id = $_SESSION['user_id'];
+$email = $_SESSION['email'];
+$user_type = $_SESSION['user_type'];
+if ($user_type=='admin') {
 ?>
 
 <!DOCTYPE html>
@@ -72,3 +78,8 @@ session_start();
     <footer>Footer</footer>
 </body>
 </html>
+<?php 
+}else{
+    header('location:login.php');
+}
+?>

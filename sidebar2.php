@@ -4,7 +4,7 @@
 </ul>
 <h3>Result</h3>
 <ul>
-    <li><a href="#">Show Result</a></li>
+    <li><a href="see_result.php">Show Result</a></li>
 </ul>
 <h3>Profile</h3>
 <ul>

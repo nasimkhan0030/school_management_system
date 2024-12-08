@@ -1,5 +1,12 @@
 <?php
 require('connection.php');
+session_start();
+$user_first_name = $_SESSION['user_first_name'];
+$user_last_name = $_SESSION['user_last_name'];
+$user_id = $_SESSION['user_id'];
+$email = $_SESSION['email'];
+$user_type = $_SESSION['user_type'];
+if ($user_type=='admin') {
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +28,7 @@ require('connection.php');
     if (isset($_GET['class_name'])) {
         $class_name = $_GET["class_name"];
 
-        $sql = "INSERT INTO class(class_name) 
+        $sql = "INSERT INTO class(class_name)
                 VALUES('$class_name')";
 
         if ($conn->query($sql) == TRUE) {
@@ -54,3 +61,8 @@ require('connection.php');
 </body>
 
 </html>
+<?php 
+}else{
+    header('location:login.php');
+}
+?>

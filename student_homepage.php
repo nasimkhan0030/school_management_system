@@ -1,10 +1,11 @@
-<?php
+<?php 
 session_start();
 $user_first_name = $_SESSION['user_first_name'];
 $user_last_name = $_SESSION['user_last_name'];
 $user_id = $_SESSION['user_id'];
-
-if (!empty($user_id)) {
+$email = $_SESSION['email'];
+$user_type = $_SESSION['user_type'];
+if ($user_type=='student') {
 ?>
     <!DOCTYPE html>
     <html lang="en">

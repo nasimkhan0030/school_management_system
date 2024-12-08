@@ -4,12 +4,6 @@
     <li><a href="list_of_class.php">Class List</a></li>
 </ul>
 
-<h3>Section</h3>
-<ul>
-    <li> <a href="add_section.php">Add Section</a></li>
-    <li><a href="list_of_section.php">Section List</a></li>
-</ul>
-
 <h3>Subject</h3>
 <ul>
     <li> <a href="add_subject.php">Add Subject</a></li>
@@ -21,7 +15,8 @@
 </ul>
 <h3>Result</h3>
 <ul>
-    <li><a href="admission_approve.php">Publish Result</a></li>
+    <li><a href="list_of_result.php">Result List</a></li>
+    <li><a href="list_of_result.php">Result List</a></li>
 </ul>
 <h3>Teacher</h3>
 <ul>

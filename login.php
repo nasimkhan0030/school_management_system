@@ -12,9 +12,11 @@ session_start();
     <title>Login</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
         body {
             font-family: 'Poppins', Arial, sans-serif;
-            background-color: #f4f4f9;
+            background-image: url(./images/School_bg.jpg);
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
         }
@@ -26,6 +28,8 @@ session_start();
             background: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            border: 1px solid black;
+            font-weight: bold;
         }
 
         h2 {
@@ -43,7 +47,9 @@ session_start();
             color: #555;
         }
 
-        input[type="email"],input[type="text"],input[type="password"] {
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -105,7 +111,7 @@ session_start();
 
     if (isset($_POST['email'])) {
 
-        $email              = $_POST['email'];
+        $email         = $_POST['email'];
         $password      = $_POST['password'];
 
         $sql = "SELECT * FROM users WHERE 
@@ -131,16 +137,44 @@ session_start();
             $user_last_name = $data['user_last_name'];
             $email = $data['email'];
             $user_id = $data['user_id'];
+            $user_type = $data['user_type'];
 
             $_SESSION['user_first_name'] = $user_first_name;
             $_SESSION['user_last_name'] = $user_last_name;
             $_SESSION['email'] = $email;
             $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_type'] = $user_type;
 
             header('location:student_homepage.php');
         } elseif (mysqli_num_rows($query1) > 0) {
+            $data = mysqli_fetch_array($query1);
+            $user_first_name = $data['user_first_name'];
+            $user_last_name = $data['user_last_name'];
+            $email = $data['email'];
+            $user_id = $data['user_id'];
+            $user_type = $data['user_type'];
+
+            $_SESSION['user_first_name'] = $user_first_name;
+            $_SESSION['user_last_name'] = $user_last_name;
+            $_SESSION['email'] = $email;
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_type'] = $user_type;
+
             header('location:teacher_homepage.php');
         } elseif (mysqli_num_rows($query2) > 0) {
+            $data = mysqli_fetch_array($query2);
+            $user_first_name = $data['user_first_name'];
+            $user_last_name = $data['user_last_name'];
+            $email = $data['email'];
+            $user_id = $data['user_id'];
+            $user_type = $data['user_type'];
+
+            $_SESSION['user_first_name'] = $user_first_name;
+            $_SESSION['user_last_name'] = $user_last_name;
+            $_SESSION['email'] = $email;
+            $_SESSION['user_id'] = $user_id;
+            $_SESSION['user_type'] = $user_type;
+
             header('location:admin_homepage.php');
         }
     }
@@ -156,7 +190,7 @@ session_start();
                 <input type="password" name="password" id="password" placeholder="Enter your password" required>
                 <button type="button" id="toggle-password" class="toggle-password">👁️</button>
             </div>
-            <button type="submit" >Login</button>
+            <button type="submit">Login</button>
         </form>
         <div class="register-container">
             <p>Don't have an account?<a href="add_student.php"> SignUp</a></p>

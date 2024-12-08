@@ -1,1 +1,2 @@
-<a href='logout.php'>Logout</a>
+
+    <a href='logout.php' class="logout">Logout</a>
